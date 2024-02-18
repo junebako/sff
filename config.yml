@@ -11,7 +11,7 @@
     inclusion_page_title_pattern: ".+"
     exclusion_page_title_pattern: "^\\d{4}-\\d{2}-\\d{2} \\w{3} : .+"
   output:
-    feed_title: "純朴メモ"
+    feed_title: "純朴雑記"
     feed_author: "juneboku"
     file_name: "memo"
 - input:
