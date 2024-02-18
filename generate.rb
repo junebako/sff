@@ -42,7 +42,7 @@ configs.each do |config|
       author.name feed_author
     end
     xml.link href: "https://scrapbox.io/#{project}/"
-    xml.link href: "https://juneboku-sandbox.github.io/scrapbox-filtered-feed/#{project}/#{file_name}.xml", rel: "self"
+    xml.link href: "https://junebako.github.io/sff/#{project}/#{file_name}.xml", rel: "self"
     xml.updated pages.sort_by(&:pubDate).last.pubDate.to_datetime.rfc3339
 
     pages.sort_by(&:pubDate).reverse.each do |item|
