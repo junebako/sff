@@ -22,3 +22,19 @@
     feed_title: "すぎえ日記"
     feed_author: "sugiwe"
     file_name: "diary"
+- input:
+    project: "tanaken0515"
+    inclusion_page_title_pattern: "^\\d{4}-\\d{2}-\\d{2}: .+"
+    exclusion_page_title_pattern: "タイトル$"
+  output:
+    feed_title: "たなけん日記"
+    feed_author: "tanaken0515"
+    file_name: "nikki"
+- input:
+    project: "tanaken0515"
+    inclusion_page_title_pattern: ".+"
+    exclusion_page_title_pattern: "^\\d{4}-\\d{2}-\\d{2}: .+"
+  output:
+    feed_title: "たなけん雑記"
+    feed_author: "tanaken0515"
+    file_name: "zakki"
