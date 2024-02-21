@@ -20,14 +20,10 @@ jobs:
         ruby-version: 3.3
 
     - name: Run script
+      uses: gh640/command-result-action@v1
       id: run-script
-      run: |
-        echo "preview<<$EOF" >> "$GITHUB_OUTPUT"
-        echo "```"           >> "$GITHUB_OUTPUT"
-        ruby generate.rb     >> "$GITHUB_OUTPUT"
-        echo "```"           >> "$GITHUB_OUTPUT"
-        echo "$EOF"          >> "$GITHUB_OUTPUT"
-        cat "$GITHUB_OUTPUT"
+      with:
+        command: ruby generate.rb
 
     - name: Comment PR
       uses: actions/github-script@v7
@@ -40,5 +36,5 @@ jobs:
             issue_number: issue_number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: "${{ steps.run-script.outputs.preview }}"
+            body: "```${{ steps.run-script.outputs.stdout }}```"
           })
