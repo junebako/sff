@@ -22,7 +22,7 @@ jobs:
     - name: Preview result
       run: |
         echo "```" > preview.txt
-        ruby generate.rb > preview.txt
+        ruby generate.rb >> preview.txt
         echo "```" >> preview.txt
 
     - name: Post comment on Pull Request
