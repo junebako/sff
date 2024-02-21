@@ -3,8 +3,6 @@ name: Preview on Pull Request
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-    paths:
-      - "config.yml"
 
 jobs:
   run-script-and-comment:
