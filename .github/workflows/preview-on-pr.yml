@@ -27,13 +27,13 @@ jobs:
         cat "$GITHUB_OUTPUT"
 
     - name: Comment PR
-      uses: actions/github-script@v5
+      uses: actions/github-script@v7
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
           const output = process.env.result
           const issue_number = context.issue.number
-          github.issues.createComment({
+          github.rest.issues.createComment({
             issue_number: issue_number,
             owner: context.repo.owner,
             repo: context.repo.repo,
