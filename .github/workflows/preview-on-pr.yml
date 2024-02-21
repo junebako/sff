@@ -3,6 +3,11 @@ name: Preview on Pull Request
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+    paths:
+      - 'config.yml'
+
+permissions:
+  pull-requests: write
 
 jobs:
   run-script-and-comment:
@@ -17,21 +22,20 @@ jobs:
         ruby-version: 3.3
 
     - name: Run script
+      uses: gh640/command-result-action@v1
       id: run-script
-      run: |
-        output=$(ruby generate.rb)
-        echo "result=$output" >> $GITHUB_ENV
-
-    - name: Comment PR
-      uses: actions/github-script@v5
       with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
+        command: ruby generate.rb
+
+    - name: Post comment on Pull Request
+      uses: actions/github-script@v7
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
-          const output = process.env.result
-          const issue_number = context.issue.number
-          github.issues.createComment({
-            issue_number: issue_number,
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: "```" + output + "```",
+            pull_number: context.issue.number,
+            body: `### Preview\n\n\`\`\`\n${{ steps.run-script.outputs.stdout }}\`\`\``
           })

@@ -13,7 +13,7 @@
   output:
     feed_title: "純朴雑記"
     feed_author: "juneboku"
-    file_name: "memo"
+    file_name: "zakki"
 - input:
     project: "sugie"
     inclusion_page_title_pattern: "\\d{8} .+"
