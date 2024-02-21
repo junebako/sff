@@ -22,11 +22,11 @@ jobs:
     - name: Run script
       id: run-script
       run: |
-        echo "preview<<-EOF" >> "$GITHUB_OUTPUT"
+        echo "preview<<$EOF" >> "$GITHUB_OUTPUT"
         echo "```"           >> "$GITHUB_OUTPUT"
         ruby generate.rb     >> "$GITHUB_OUTPUT"
         echo "```"           >> "$GITHUB_OUTPUT"
-        echo "-EOF"          >> "$GITHUB_OUTPUT"
+        echo "$EOF"          >> "$GITHUB_OUTPUT"
         cat "$GITHUB_OUTPUT"
 
     - name: Comment PR
