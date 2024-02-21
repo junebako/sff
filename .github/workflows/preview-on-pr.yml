@@ -3,6 +3,8 @@ name: Preview on Pull Request
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+    paths:
+      - 'config.yml'
 
 permissions:
   pull-requests: write
@@ -35,5 +37,5 @@ jobs:
             owner: context.repo.owner,
             repo: context.repo.repo,
             pull_number: context.issue.number,
-            body: `### Preview\n\n\`\`\`\n${{ steps.run-script.outputs.stdout }}\n\`\`\``
+            body: `### Preview\n\n\`\`\`\n${{ steps.run-script.outputs.stdout }}\`\`\``
           })
