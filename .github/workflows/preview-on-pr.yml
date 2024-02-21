@@ -40,5 +40,5 @@ jobs:
             issue_number: issue_number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: ${{ steps.run-script.outputs.preview }}
+            body: "${{ steps.run-script.outputs.preview }}"
           })
