@@ -30,8 +30,8 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
-          const output = process.env.result
           const issue_number = context.issue.number
+          console.log(context)
           github.rest.issues.createComment({
             issue_number: issue_number,
             owner: context.repo.owner,
