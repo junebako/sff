@@ -23,6 +23,8 @@ configs.each do |config|
   original_title = original_feed.channel.title
   original_description = original_feed.channel.description
 
+  xml_published_url = "https://junebako.github.io/sff/#{project}/#{file_name}.xml"
+
   puts "Processing: #{project} - #{feed_title}"
 
   pages = original_feed.items.filter do
@@ -42,7 +44,7 @@ configs.each do |config|
       author.name feed_author
     end
     xml.link href: "https://scrapbox.io/#{project}/"
-    xml.link href: "https://junebako.github.io/sff/#{project}/#{file_name}.xml", rel: "self"
+    xml.link href: xml_published_url, rel: "self"
     xml.updated pages.sort_by(&:pubDate).last.pubDate.to_datetime.rfc3339
 
     pages.sort_by(&:pubDate).reverse.each do |item|
@@ -67,5 +69,6 @@ configs.each do |config|
   File.write(file_path, xml.target!)
 
   puts "Generated: #{file_path}"
+  puts "Will be published at: #{xml_published_url}"
   puts
 end
