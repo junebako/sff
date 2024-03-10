@@ -4,6 +4,7 @@
     exclusion_page_title_pattern: "\\(書きかけ\\)"
   output:
     feed_title: "純朴日記"
+    feed_description: "junebokuが2019年8月23日から書き続けている毎日更新の日記です"
     feed_author: "juneboku"
     file_name: "nikki"
 - input:
@@ -12,6 +13,7 @@
     exclusion_page_title_pattern: "^\\d{4}-\\d{2}-\\d{2} \\w{3} : .+"
   output:
     feed_title: "純朴雑記"
+    feed_description: "junebokuが雑に書いたものたち"
     feed_author: "juneboku"
     file_name: "zakki"
 - input:
@@ -20,6 +22,7 @@
     exclusion_page_title_pattern: "書きかけ$"
   output:
     feed_title: "すぎえ日記"
+    feed_description: "すぎえの日記です"
     feed_author: "sugiwe"
     file_name: "diary"
 - input:
@@ -28,6 +31,7 @@
     exclusion_page_title_pattern: "タイトル$"
   output:
     feed_title: "たなけん日記"
+    feed_description: "たなけんの日記です"
     feed_author: "tanaken0515"
     file_name: "nikki"
 - input:
@@ -36,5 +40,6 @@
     exclusion_page_title_pattern: "^\\d{4}-\\d{2}-\\d{2}: .+"
   output:
     feed_title: "たなけん雑記"
+    feed_description: "たなけんの雑記です"
     feed_author: "tanaken0515"
     file_name: "zakki"
