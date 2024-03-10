@@ -59,7 +59,7 @@ configs.each do |config|
         xml.id item.link
         xml.updated item.pubDate.to_datetime.rfc3339
         xml.content type: "html" do
-          xml.cdata! item.description
+          xml.cdata! item.description.to_s
         end
       end
     end
