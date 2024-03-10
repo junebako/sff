@@ -45,7 +45,7 @@ configs.each do |config|
     end
     xml.link href: "https://scrapbox.io/#{project}/"
     xml.link href: xml_published_url, rel: "self"
-    xml.updated pages.sort_by(&:pubDate).last.pubDate.to_datetime.rfc3339
+    xml.updated pages.size > 0 ? pages.sort_by(&:pubDate).last.pubDate.to_datetime.rfc3339 : Time.now.to_datetime.rfc3339
 
     pages.sort_by(&:pubDate).reverse.each do |item|
       page_title = item.title.sub(" - #{original_title}", "")
