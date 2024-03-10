@@ -41,7 +41,7 @@ configs.each do |config|
   xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
     xml.id "https://scrapbox.io/#{project}/"
     xml.title feed_title
-    xml.description feed_description
+    xml.subtitle feed_description
     xml.author do |author|
       author.name feed_author
     end
