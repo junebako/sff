@@ -12,8 +12,8 @@ configs = YAML.load_file("config.yml")
 
 configs.each do |config|
   project = config.dig("input", "project")
-  inclusion_page_title_pattern = config.dig("input", "inclusion_page_title_pattern")
-  exclusion_page_title_pattern = config.dig("input", "exclusion_page_title_pattern")
+  inclusion_page_title_patterns = config.dig("input", "inclusion_page_title_patterns")
+  exclusion_page_title_patterns = config.dig("input", "exclusion_page_title_patterns")
 
   feed_title = config.dig("output", "feed_title")
   feed_description = config.dig("output", "feed_description")
@@ -31,8 +31,8 @@ configs.each do |config|
   pages = original_feed.items.filter do
     page_title = _1.title.sub(" - #{original_title}", "")
 
-    page_title.match(Regexp.compile(inclusion_page_title_pattern)) &&
-    !page_title.match(Regexp.compile(exclusion_page_title_pattern))
+    inclusion_page_title_patterns.any? { |pattern| page_title.match(Regexp.compile(pattern)) } &&
+    !exclusion_page_title_patterns.any? { |pattern| page_title.match(Regexp.compile(pattern)) }
   end
 
   xml = Builder::XmlMarkup.new(indent: 2)

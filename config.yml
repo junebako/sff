@@ -1,7 +1,9 @@
 - input:
     project: "june29"
-    inclusion_page_title_pattern: "^\\d{4}-\\d{2}-\\d{2} \\w{3} : .+"
-    exclusion_page_title_pattern: "\\(書きかけ\\)"
+    inclusion_page_title_patterns:
+      - "^\\d{4}-\\d{2}-\\d{2} \\w{3} : .+"
+    exclusion_page_title_patterns:
+      - "\\(書きかけ\\)"
   output:
     feed_title: "純朴日記"
     feed_description: "junebokuが2019年8月23日から書き続けている毎日更新の日記です"
@@ -9,8 +11,11 @@
     file_name: "nikki"
 - input:
     project: "june29"
-    inclusion_page_title_pattern: ".+"
-    exclusion_page_title_pattern: "^\\d{4}-\\d{2}-\\d{2} \\w{3} : .+"
+    inclusion_page_title_patterns:
+      - ".+"
+    exclusion_page_title_patterns:
+      - "^\\d{4}-\\d{2}-\\d{2} \\w{3} : .+"
+      - "\\(書きかけ\\)"
   output:
     feed_title: "純朴雑記"
     feed_description: "junebokuが雑に書いたものたち"
@@ -18,8 +23,10 @@
     file_name: "zakki"
 - input:
     project: "sugie"
-    inclusion_page_title_pattern: "\\d{8} .+"
-    exclusion_page_title_pattern: "書きかけ$"
+    inclusion_page_title_patterns:
+      - "\\d{8} .+"
+    exclusion_page_title_patterns:
+      - "書きかけ$"
   output:
     feed_title: "すぎえ日記"
     feed_description: "すぎえの日記です"
@@ -27,8 +34,10 @@
     file_name: "diary"
 - input:
     project: "tanaken0515"
-    inclusion_page_title_pattern: "^\\d{4}-\\d{2}-\\d{2}: .+"
-    exclusion_page_title_pattern: "タイトル$"
+    inclusion_page_title_patterns:
+      - "^\\d{4}-\\d{2}-\\d{2}: .+"
+    exclusion_page_title_patterns:
+      - "タイトル$"
   output:
     feed_title: "たなけん日記"
     feed_description: "たなけんの日記です"
@@ -36,8 +45,10 @@
     file_name: "nikki"
 - input:
     project: "tanaken0515"
-    inclusion_page_title_pattern: ".+"
-    exclusion_page_title_pattern: "^\\d{4}-\\d{2}-\\d{2}: .+"
+    inclusion_page_title_patterns:
+      - ".+"
+    exclusion_page_title_patterns:
+      - "^\\d{4}-\\d{2}-\\d{2}: .+"
   output:
     feed_title: "たなけん雑記"
     feed_description: "たなけんの雑記です"
