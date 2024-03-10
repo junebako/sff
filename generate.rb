@@ -16,6 +16,7 @@ configs.each do |config|
   exclusion_page_title_pattern = config.dig("input", "exclusion_page_title_pattern")
 
   feed_title = config.dig("output", "feed_title")
+  feed_description = config.dig("output", "feed_description")
   feed_author = config.dig("output", "feed_author")
   file_name = config.dig("output", "file_name")
 
@@ -40,6 +41,7 @@ configs.each do |config|
   xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
     xml.id "https://scrapbox.io/#{project}/"
     xml.title feed_title
+    xml.description feed_description
     xml.author do |author|
       author.name feed_author
     end
