@@ -1,11 +1,34 @@
 - input:
-    project: "june29"
+    project: "juneboku"
     inclusion_page_title_patterns:
       - "^\\d{4}-\\d{2}-\\d{2} \\w{3} : .+"
     exclusion_page_title_patterns:
       - "\\(書きかけ\\)"
   output:
     feed_title: "純朴日記"
+    feed_description: "junebokuが2019年8月23日から書き続けている毎日更新の日記です"
+    feed_author: "juneboku"
+    file_name: "nikki"
+- input:
+    project: "juneboku"
+    inclusion_page_title_patterns:
+      - ".+"
+    exclusion_page_title_patterns:
+      - "^\\d{4}-\\d{2}-\\d{2} \\w{3} : .+"
+      - "\\(書きかけ\\)"
+  output:
+    feed_title: "純朴雑記"
+    feed_description: "junebokuが雑に書いたものたち"
+    feed_author: "juneboku"
+    file_name: "zakki"
+- input:
+    project: "june29"
+    inclusion_page_title_patterns:
+      - "^\\d{4}-\\d{2}-\\d{2} \\w{3} : .+"
+    exclusion_page_title_patterns:
+      - "\\(書きかけ\\)"
+  output:
+    feed_title: "旧・純朴日記(更新停止)"
     feed_description: "junebokuが2019年8月23日から書き続けている毎日更新の日記です"
     feed_author: "juneboku"
     file_name: "nikki"
@@ -17,7 +40,7 @@
       - "^\\d{4}-\\d{2}-\\d{2} \\w{3} : .+"
       - "\\(書きかけ\\)"
   output:
-    feed_title: "純朴雑記"
+    feed_title: "旧・純朴雑記(更新停止)"
     feed_description: "junebokuが雑に書いたものたち"
     feed_author: "juneboku"
     file_name: "zakki"
