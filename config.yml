@@ -45,13 +45,24 @@
     feed_author: "juneboku"
     file_name: "zakki"
 - input:
-    project: "sugie"
+    project: "sugiwe"
     inclusion_page_title_patterns:
       - "\\d{8} .+"
     exclusion_page_title_patterns:
       - "書きかけ$"
   output:
     feed_title: "すぎえ日記"
+    feed_description: "sugiwe（すぎえ）が毎日更新している日記です"
+    feed_author: "sugiwe"
+    file_name: "diary"
+- input:
+    project: "sugie"
+    inclusion_page_title_patterns:
+      - "\\d{8} .+"
+    exclusion_page_title_patterns:
+      - "書きかけ$"
+  output:
+    feed_title: "旧・すぎえ日記（更新停止）"
     feed_description: "すぎえの日記です"
     feed_author: "sugiwe"
     file_name: "diary"
