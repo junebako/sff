@@ -33,7 +33,9 @@ jobs:
         with:
           ruby-version: '3.4.1'
       - name: Generate feed
-        run: ruby generate.rb
+        run: |
+          ruby generate.rb
+          ls -la ./public
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -41,6 +43,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './public'
+          retention-days: 1
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
