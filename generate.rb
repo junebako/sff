@@ -1,10 +1,10 @@
 require "bundler/inline"
 require "rss"
 require "yaml"
+require "open-uri"
 
 gemfile do
   source "https://rubygems.org"
-  gem "http"
   gem "builder"
 end
 
@@ -20,7 +20,7 @@ configs.each do |config|
   feed_author = config.dig("output", "feed_author")
   file_name = config.dig("output", "file_name")
 
-  original_feed = RSS::Parser.parse(HTTP.get("https://scrapbox.io/api/feed/#{project}").body.to_s)
+  original_feed = RSS::Parser.parse(URI.open("https://scrapbox.io/api/feed/#{project}").read)
   original_title = original_feed.channel.title
   original_description = original_feed.channel.description
 
