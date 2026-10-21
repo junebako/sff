@@ -22,14 +22,13 @@ configs.each do |config|
 
   original_feed = RSS::Parser.parse(URI.open("https://scrapbox.io/api/feed/#{project}").read)
   original_title = original_feed.channel.title
-  original_description = original_feed.channel.description
 
   xml_published_url = "https://junebako.github.io/sff/#{project}/#{file_name}.xml"
 
   puts "Processing: #{project} - #{feed_title}"
 
   pages = original_feed.items.filter do
-    page_title = _1.title.sub(" - #{original_title}", "")
+    page_title = it.title.sub(" - #{original_title}", "")
 
     inclusion_page_title_patterns.any? { |pattern| page_title.match(Regexp.compile(pattern)) } &&
     !exclusion_page_title_patterns.any? { |pattern| page_title.match(Regexp.compile(pattern)) }
