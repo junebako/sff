@@ -20,7 +20,14 @@ configs.each do |config|
   feed_author = config.dig("output", "feed_author")
   file_name = config.dig("output", "file_name")
 
-  original_feed = RSS::Parser.parse(URI.open("https://scrapbox.io/api/feed/#{project}").read)
+  begin
+    original_feed = RSS::Parser.parse(URI.open("https://scrapbox.io/api/feed/#{project}").read)
+  rescue OpenURI::HTTPError => e
+    # Skip projects whose feed is unavailable (e.g. turned private) so other feeds are still generated
+    puts "::warning::Skipped #{project} (#{file_name}): failed to fetch feed (#{e.message})"
+    puts
+    next
+  end
   original_title = original_feed.channel.title
 
   xml_published_url = "https://junebako.github.io/sff/#{project}/#{file_name}.xml"
